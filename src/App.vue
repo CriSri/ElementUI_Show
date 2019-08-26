@@ -16,15 +16,26 @@
         <el-menu-item index="1-2">
           <router-link to="/Form/checkbox">Checkbox</router-link>
         </el-menu-item>
-        <el-menu-item index="1-3">input</el-menu-item>
+        <el-menu-item index="1-3">
+          <router-link to='/Form/input'>input</router-link>
+        </el-menu-item>
       </el-submenu>
 
       <el-submenu index="2">
         <template slot="title">
           <router-link to="/Data">Data</router-link>
         </template>
-        <el-menu-item index="2-2">
+        <el-menu-item index="2-1">
           <router-link to="/Data/table">table</router-link>
+        </el-menu-item>
+      </el-submenu>
+      
+      <el-submenu index="3">
+        <template slot="title">
+          <router-link to="/Navigation">Navigation</router-link>
+        </template>
+        <el-menu-item index="3-1">
+          <router-link to="/Navigation/navmenu">NavMenu</router-link>
         </el-menu-item>
       </el-submenu>
     </el-menu>
@@ -39,12 +50,22 @@
 </template>
 
 <script>
-import Form from "./components/Form/index.vue";
+// import Form from "./components/Form/index.vue";
 
 export default {
   name: "App",
   components: {
-    Form
+   
+  },
+  data(){
+    return {
+      activeIndex: '1',
+    }
+  },
+  methods: {
+    handleSelect: function(key, keyPath){
+        return key +  "  " +keyPath
+    }
   }
 };
 </script>
@@ -55,7 +76,12 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  /* color: #2c3e50; */
   margin-top: 60px;
+ 
+}
+a {
+   text-decoration: none;
+   color:#333;
 }
 </style>
